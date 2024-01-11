@@ -44,10 +44,11 @@ class Server:
         returns dict
         """
         dataset = self.dataset()
-        assert index <= index + len(dataset)
+        assert index <= len(dataset)
         next_index = index + page_size
         indexed_data = self.indexed_dataset()
         data_dict = []
+        index_count = index_range
         for x in range(page_size):
             data = indexed_data.get(index)
             data_dict.append(data)
